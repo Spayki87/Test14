@@ -10,28 +10,18 @@ namespace Вывод_имени
     {
         static void Main(string[] args)
         {
-            string name;
-            char symbol;
-
             Console.Write("Введите имя: ");
-            name = Console.ReadLine();
+            string name = Console.ReadLine();
 
             Console.Write("Введите символ: ");
-            symbol = Console.ReadKey().KeyChar;
+            char symbol = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
-            PrintNameInRectangle(name, symbol);
-        }
+            string middleLine = $"{symbol} {name} {symbol}";
+            int lateralLine = middleLine.Length;
+            string horizontalLine = new string(symbol, lateralLine);
 
-        static void PrintNameInRectangle(string name, char symbol)
-        {
-            int length = name.Length;
-
-            Console.WriteLine(new string(symbol, length + 4));
-
-            Console.WriteLine($"{symbol} {name} {symbol}");
-
-            Console.WriteLine(new string(symbol, length + 4));
+            Console.WriteLine($"{horizontalLine}\n{middleLine}\n{horizontalLine}");
         }
     }
 }
